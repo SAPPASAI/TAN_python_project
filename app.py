@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY", "default-dev-key")
+app.secret_key = os.getenv("SECRET_KEY", "fallback_secret_key")
 # PostgreSQL Database Configuration
 app.config['DATABASE_URL'] = os.getenv("DATABASE_URL", "dbname=your_db user=your_user password=your_pass host=localhost")
 #postgresql://my_flask_db_7rzp_user:K7Ty2AG6FHg4cDOzfcN8FjBM44vlCP27@dpg-d0phic0dl3ps73aq24lg-a.singapore-postgres.render.com/my_flask_db_7rzp
