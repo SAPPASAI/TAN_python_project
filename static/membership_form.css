@@ -1,0 +1,143 @@
+  /* Section Styling */
+  .membership-form-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    overflow: hidden;
+  }
+
+  .z-index-1 {
+    position: relative;
+    z-index: 1;
+  }
+
+  .z-index-0 {
+    z-index: 0;
+  }
+
+  /* Header Styling */
+  .section-subtitle {
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #198754;
+  }
+
+  /* .section-title {
+    font-size: 2.2rem;
+    background: linear-gradient(to right, #198754, #20c997);
+    -webkit-text-fill-color: transparent;
+    position: relative;
+  } */
+
+  .section-description {
+    font-size: 1.1rem;
+  }
+
+  /* Form Styling */
+  .membership-form {
+    background-color: white;
+    transition: all 0.5s ease;
+  }
+
+  .membership-form:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .form-group {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #495057;
+  }
+
+  .input-group-text {
+    transition: all 0.3s ease;
+  }
+
+  .form-control, .form-select {
+    border-left: 0;
+    padding-left: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .form-control:focus, .form-select:focus {
+    box-shadow: none;
+    border-color: #198754;
+  }
+
+  .form-control:focus + .input-group-text, 
+  .form-select:focus + .input-group-text {
+    background-color: rgba(25, 135, 84, 0.2);
+  }
+
+  textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  /* Submit Button */
+  .submit-btn {
+    position: relative;
+    overflow: hidden;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+    background: linear-gradient(to right, #198754, #20c997);
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(25, 135, 84, 0.3);
+  }
+
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .wow.fadeInUp {
+    animation-name: fadeInUp;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+  }
+
+  .wow.fadeInDown {
+    animation-name: fadeInDown;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+  }
+
+  /* Input Focus Animations */
+  .form-control:focus, .form-select:focus {
+    transform: translateX(5px);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 767.98px) {
+    .section-title {
+      font-size: 1.8rem;
+    }
+    
+    .membership-form {
+      padding: 1.5rem !important;
+    }
+    
+    .submit-btn {
+      width: 100%;
+    }
+  }

@@ -1,0 +1,57 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Edit Member{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Edit Member</h2>
+
+  <form method="POST">
+    <!-- Name -->
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" name="name" value="{{ member.name }}" required>
+    </div>
+
+    <!-- Gender -->
+    <div class="mb-3">
+      <label for="gender" class="form-label">Gender</label>
+      <select class="form-select" id="gender" name="gender" required>
+        <option value="">Select Gender</option>
+        <option value="Male" {% if member.gender == 'Male' %}selected{% endif %}>Male</option>
+        <option value="Female" {% if member.gender == 'Female' %}selected{% endif %}>Female</option>
+        <option value="Other" {% if member.gender == 'Other' %}selected{% endif %}>Other</option>
+      </select>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" name="email" value="{{ member.email }}" required>
+    </div>
+
+    <!-- Phone Number -->
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone Number</label>
+      <input type="text" class="form-control" id="phone" name="phone" value="{{ member.phone }}" required>
+    </div>
+
+    <!-- Membership Type -->
+    <div class="mb-3">
+      <label for="membership_type" class="form-label">Membership Type</label>
+      <input type="text" class="form-control" id="membership_type" name="membership_type"
+        value="{{ member.membership_type }}" required>
+    </div>
+
+    <!-- Message -->
+    <div class="mb-3">
+      <label for="message" class="form-label">Message</label>
+      <textarea class="form-control" id="message" name="message" rows="3">{{ member.message }}</textarea>
+    </div>
+
+    <!-- Buttons -->
+    <button type="submit" class="btn btn-success">Update Member</button>
+    <a href="{{ url_for('admin_members_details') }}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}

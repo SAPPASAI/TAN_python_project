@@ -1,0 +1,152 @@
+{% extends "index.html" %}
+{% block content %}
+<link rel="stylesheet" href="static/articles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<section class="articles-section py-5">
+  <div class="container">
+    <div class="section-header animate__animated animate__fadeInDown">
+      <h2 class="section-title">Latest Articles</h2>
+      <p class="text-muted">Discover our collection of insightful articles</p>
+    </div>
+
+    <!-- Search and Filters -->
+    <div class="search-filter-container animate__animated animate__fadeIn">
+      <div class="row">
+        <div class="col-lg-6 mb-3 mb-lg-0">
+          <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="articleSearch" placeholder="Search articles...">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="filter-buttons" id="tagFilters">
+            <button class="filter-btn active" data-tag="all">All</button>
+            {% for tag in tags %}
+            <button class="filter-btn" data-tag="{{ tag }}">{{ tag }}</button>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Articles Grid -->
+    <div class="row" id="articleList">
+      {% for article in articles %}
+      <div class="col-lg-4 col-md-6 mb-4 article-card" 
+           data-title="{{ article.title|lower }}" 
+           data-tags="{{ article.tags|join(',')|lower }}"
+           style="--order: {{ loop.index }}">
+        <div class="card h-100">
+          <img src="{{ article.image_url }}" class="card-img-top" alt="{{ article.title }}" loading="lazy">
+          <div class="card-body">
+            <h5 class="card-title">{{ article.title }}</h5>
+            <p class="card-text">{{ article.excerpt }}</p>
+            <a href="{{ article.link }}" class="read-more-btn mt-auto">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+    <!-- No Results Message -->
+    <div class="no-results" id="noResults">
+      <i class="fas fa-newspaper"></i>
+      <h4>No Articles Found</h4>
+      <p class="text-muted">Try adjusting your search or filter criteria</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize animations
+    const cards = document.querySelectorAll('.article-card');
+    cards.forEach((card, index) => {
+      card.style.setProperty('--order', index);
+    });
+    
+    // Enhanced search and filter functionality
+    const searchInput = document.getElementById('articleSearch');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const articleCards = document.querySelectorAll('.article-card');
+    const noResults = document.getElementById('noResults');
+    
+    // Search function
+    searchInput.addEventListener('input', function() {
+      const searchText = this.value.trim().toLowerCase();
+      const activeTag = document.querySelector('.filter-btn.active').dataset.tag.toLowerCase();
+      filterArticles(searchText, activeTag);
+    });
+    
+    // Filter buttons
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Animation for active button
+        this.classList.add('animate__animated', 'animate__pulse');
+        setTimeout(() => {
+          this.classList.remove('animate__animated', 'animate__pulse');
+        }, 500);
+        
+        // Update active state
+        filterButtons.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Filter articles
+        const searchText = searchInput.value.trim().toLowerCase();
+        filterArticles(searchText, this.dataset.tag.toLowerCase());
+      });
+    });
+    
+    // Filter function with animations
+    function filterArticles(searchText, tag) {
+      let visibleCount = 0;
+      
+      articleCards.forEach(card => {
+        const title = card.dataset.title;
+        const tags = card.dataset.tags;
+        
+        const matchSearch = title.includes(searchText);
+        const matchTag = (tag === "all") || tags.includes(tag);
+        
+        if (matchSearch && matchTag) {
+          visibleCount++;
+          card.style.display = 'block';
+          card.classList.add('animate__animated', 'animate__fadeIn');
+        } else {
+          card.classList.add('animate__animated', 'animate__fadeOut');
+          setTimeout(() => {
+            card.style.display = 'none';
+            card.classList.remove('animate__fadeOut');
+          }, 300);
+        }
+      });
+      
+      // Show/hide no results message
+      if (visibleCount === 0) {
+        noResults.style.display = 'block';
+        noResults.classList.add('animate__animated', 'animate__fadeIn');
+      } else {
+        noResults.classList.remove('animate__animated', 'animate__fadeIn');
+        noResults.classList.add('animate__animated', 'animate__fadeOut');
+        setTimeout(() => {
+          noResults.style.display = 'none';
+          noResults.classList.remove('animate__animated', 'animate__fadeOut');
+        }, 300);
+      }
+    }
+    
+    // Card hover effects
+    articleCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.querySelector('.card').style.transform = 'translateY(-10px)';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.querySelector('.card').style.transform = 'translateY(0)';
+      });
+    });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "index.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="static/current_gallery.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/css/glightbox.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<section class="events-gallery py-5">
+  <div class="container">
+    <h2 class="gallery-header text-center wow animate__fadeInDown">Present Events Gallery</h2>
+    
+    <div class="row g-4">
+      {% for image in images %}
+      <div class="col-sm-6 col-md-4 col-lg-3 wow animate__fadeInUp">
+        <div class="gallery-item h-100">
+          <div class="gallery-img-container">
+            <a href="{{ url_for('static', filename='images/gallery/' + image.filename) }}"
+               class="glightbox" data-gallery="gallery" data-title="{{ image.title }}">
+              <img src="{{ url_for('static', filename='images/gallery/' + image.filename) }}"
+                   class="gallery-img" alt="{{ image.title }}">
+              <div class="gallery-overlay">
+                <i class="zoom-icon fas fa-search-plus"></i>
+              </div>
+            </a>
+          </div>
+          <div class="gallery-caption text-center">
+            <h6 class="event-title mb-0">{{ image.title }}</h6>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>
+<script>
+  // Initialize WOW.js for animations
+  new WOW().init();
+  
+  // Initialize GLightbox
+  const lightbox = GLightbox({
+    selector: '.glightbox',
+    touchNavigation: true,
+    loop: true,
+    moreText: 'View Details',
+    moreLength: 60,
+    zoomable: false,
+    draggable: true,
+    openEffect: 'zoom',
+    closeEffect: 'zoom',
+    slideEffect: 'slide'
+  });
+  
+  // Enhanced hover effects
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-10px)';
+      this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.15)';
+    });
+    
+    item.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+      this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+    });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,175 @@
+{% extends "index.html" %}
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="static/jobs.css">
+
+
+<section class="job-openings-section py-5">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Job Openings</h2>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+      <button class="filter-btn btn-all active" onclick="showJobs('all')">
+        <i class="fas fa-briefcase me-1"></i> All Jobs
+      </button>
+      <button class="filter-btn btn-it" onclick="showJobs('it')">
+        <i class="fas fa-laptop-code me-1"></i> IT Jobs
+      </button>
+      <button class="filter-btn btn-non-it" onclick="showJobs('non-it')">
+        <i class="fas fa-user-tie me-1"></i> Non-IT Jobs
+      </button>
+    </div>
+
+    <!-- IT Jobs Section -->
+    <div id="it-jobs">
+      <h3 class="category-header it-header animate__animated animate__fadeIn">
+        <i class="fas fa-laptop-code me-2"></i> IT Jobs
+      </h3>
+      <div class="row">
+        {% for job in it_jobs %}
+        <div class="col-md-6 job-card it-job" style="--order: {{ loop.index }}">
+          <div class="card h-100">
+            <div class="card-body">
+              <h4 class="card-title">{{ job.title }}</h4>
+              
+              <div class="job-meta">
+                <div class="meta-item">
+                  <i class="fas fa-building meta-icon"></i>
+                  <span>{{ job.company }}</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-map-marker-alt meta-icon"></i>
+                  <span>{{ job.location }}</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-briefcase meta-icon"></i>
+                  <span>{{ job.type }}</span>
+                </div>
+              </div>
+              
+              <a href="{{ job.apply_link }}" class="apply-btn" target="_blank">
+                Apply Now <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% else %}
+        <div class="col-12">
+          <div class="no-jobs animate__animated animate__fadeIn">
+            <i class="fas fa-laptop-code"></i>
+            <h4>No IT Jobs Available</h4>
+            <p class="text-muted">Check back later for new opportunities</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Non-IT Jobs Section -->
+    <div id="non-it-jobs" class="mt-5">
+      <h3 class="category-header non-it-header animate__animated animate__fadeIn">
+        <i class="fas fa-user-tie me-2"></i> Non-IT Jobs
+      </h3>
+      <div class="row">
+        {% for job in non_it_jobs %}
+        <div class="col-md-6 job-card non-it-job" style="--order: {{ loop.index }}">
+          <div class="card h-100">
+            <div class="card-body">
+              <h4 class="card-title">{{ job.title }}</h4>
+              
+              <div class="job-meta">
+                <div class="meta-item">
+                  <i class="fas fa-building meta-icon"></i>
+                  <span>{{ job.company }}</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-map-marker-alt meta-icon"></i>
+                  <span>{{ job.location }}</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-briefcase meta-icon"></i>
+                  <span>{{ job.type }}</span>
+                </div>
+              </div>
+              
+              <a href="{{ job.apply_link }}" class="apply-btn" target="_blank">
+                Apply Now <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% else %}
+        <div class="col-12">
+          <div class="no-jobs animate__animated animate__fadeIn">
+            <i class="fas fa-user-tie"></i>
+            <h4>No Non-IT Jobs Available</h4>
+            <p class="text-muted">Check back later for new opportunities</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript for filtering and animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+  // Initialize animations
+  new WOW().init();
+  
+  // Initialize job card animations
+  document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.job-card');
+    cards.forEach((card, index) => {
+      card.style.setProperty('--order', index);
+    });
+  });
+  
+  // Filter function with animations
+  function showJobs(type) {
+    const itSection = document.getElementById("it-jobs");
+    const nonItSection = document.getElementById("non-it-jobs");
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    // Update active button
+    filterButtons.forEach(btn => {
+      btn.classList.remove('active');
+      btn.classList.remove('animate__pulse');
+    });
+    
+    event.target.classList.add('active');
+    event.target.classList.add('animate__animated', 'animate__pulse');
+    setTimeout(() => {
+      event.target.classList.remove('animate__animated', 'animate__pulse');
+    }, 500);
+    
+    // Apply filtering with animations
+    if (type === 'it') {
+      itSection.style.display = "block";
+      nonItSection.style.display = "none";
+    } else if (type === 'non-it') {
+      itSection.style.display = "none";
+      nonItSection.style.display = "block";
+    } else {
+      itSection.style.display = "block";
+      nonItSection.style.display = "block";
+    }
+    
+    // Animate the sections
+    if (itSection.style.display === "block") {
+      itSection.classList.add('animate__animated', 'animate__fadeIn');
+    }
+    if (nonItSection.style.display === "block") {
+      nonItSection.classList.add('animate__animated', 'animate__fadeIn');
+    }
+  }
+  
+  // Show all jobs by default
+  showJobs('all');
+</script>
+{% endblock %}

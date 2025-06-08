@@ -1,0 +1,93 @@
+{% extends "index.html" %}
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="static/emergency_contact.css">
+<section class="emergency-section py-5">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title animate__animated animate__fadeInDown">Emergency Contacts</h2>
+      <p class="section-subtitle animate__animated animate__fadeIn animate__delay-1s">Quickly reach essential emergency services</p>
+    </div>
+
+    <div class="row g-4">
+      {% for contact in emergency_contacts %}
+      <div class="col-md-6 col-lg-4" style="--order: {{ loop.index }}">
+        <div class="emergency-card">
+          <div class="card-body">
+            <div class="card-icon 
+                 {% if contact.name == 'Police' %}police-icon
+                 {% elif contact.name == 'Ambulance' %}ambulance-icon
+                 {% elif contact.name == 'Fire Department' %}fire-icon
+                 {% elif contact.name == 'Disaster Management' %}disaster-icon
+                 {% elif contact.name == 'Women Helpline' %}women-icon
+                 {% elif contact.name == 'Child Helpline' %}child-icon
+                 {% endif %}">
+              {% if contact.name == "Police" %}
+                <i class="fas fa-shield-alt"></i>
+              {% elif contact.name == "Ambulance" %}
+                <i class="fas fa-ambulance"></i>
+              {% elif contact.name == "Fire Department" %}
+                <i class="fas fa-fire-extinguisher"></i>
+              {% elif "Helpline" in contact.name %}
+                <i class="fas fa-hands-helping"></i>
+              {% else %}
+                <i class="fas fa-phone-alt"></i>
+              {% endif %}
+            </div>
+            <div class="card-content">
+              <h5 class="card-title">{{ contact.name }}</h5>
+              <p class="card-description">{{ contact.description }}</p>
+              <a href="tel:{{ contact.phone }}" class="call-btn animate__animated animate__pulse animate__infinite animate__slower">
+                <i class="fas fa-phone-alt"></i> Call {{ contact.phone }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize animations
+    const cards = document.querySelectorAll('.emergency-card');
+    cards.forEach((card, index) => {
+      card.style.setProperty('--order', index);
+    });
+    
+    // Add click animation to call buttons
+    const callButtons = document.querySelectorAll('.call-btn');
+    callButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        this.classList.add('animate__animated', 'animate__rubberBand');
+        setTimeout(() => {
+          this.classList.remove('animate__animated', 'animate__rubberBand');
+        }, 1000);
+      });
+      
+      // Pause pulse animation on hover
+      btn.addEventListener('mouseenter', function() {
+        this.classList.remove('animate__pulse');
+      });
+      
+      btn.addEventListener('mouseleave', function() {
+        this.classList.add('animate__pulse');
+      });
+    });
+    
+    // Add hover effects to cards
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-5px) scale(1.02)';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+  });
+</script>
+{% endblock %}

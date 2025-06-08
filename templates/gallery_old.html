@@ -1,0 +1,74 @@
+{% extends 'index.html' %}
+{% block title %}Gallery{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="static/gallery_old.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/css/glightbox.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<section class="gallery-section py-5">
+  <div class="container">
+    <h2 class="gallery-title text-center text-dark mb-5 wow animate__fadeInDown">Past Event Gallery</h2>
+    
+    <div class="row g-4">
+      {% for image in images %}
+      <div class="col-md-4 col-sm-6 wow animate__fadeInUp">
+        <div class="gallery-card h-100">
+          <div class="gallery-image-container">
+            <a href="{{ url_for('static', filename='images/gallery/' + image.filename) }}"
+               class="glightbox" data-gallery="gallery" data-title="{{ image.title }}">
+              <img src="{{ url_for('static', filename='images/gallery/' + image.filename) }}"
+                   class="gallery-image" alt="{{ image.title }}">
+              <div class="gallery-overlay">
+                <i class="zoom-icon fas fa-search-plus"></i>
+              </div>
+            </a>
+          </div>
+          <div class="gallery-caption text-center">
+            <p class="text-muted mb-0">{{ image.title }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>
+<script>
+  // Initialize WOW.js for animations
+  new WOW().init();
+  
+  // Initialize GLightbox
+  const lightbox = GLightbox({
+    selector: '.glightbox',
+    touchNavigation: true,
+    loop: true,
+    autoplayVideos: true,
+    moreText: 'See More',
+    moreLength: 60,
+    zoomable: false,
+    draggable: true,
+    openEffect: 'zoom',
+    closeEffect: 'zoom',
+    slideEffect: 'slide'
+  });
+  
+  // Enhanced hover effects
+  document.querySelectorAll('.gallery-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-10px)';
+      this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.15)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+      this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+    });
+  });
+</script>
+{% endblock %}

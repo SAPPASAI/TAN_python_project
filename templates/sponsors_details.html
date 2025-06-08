@@ -1,0 +1,68 @@
+{% extends "index.html" %}
+
+{% block hed %}
+<section class="bg-success text-white text-center py-5">
+  <div class="container">
+    <h1 class="display-4">Sponsor Details</h1>
+    <p class="lead">Meet the generous sponsors supporting our community</p>
+  </div>
+</section>
+{% endblock hed %}
+
+{% block content %}
+<link rel="stylesheet" href="static/sponsors_details.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<section class="sponsors-section py-5">
+  <div class="container">
+    {% if sponsors %}
+      <div class="row">
+        {% for sponsor in sponsors %}
+        <div class="col-md-6 col-lg-4 mb-4 wow animate__fadeInUp">
+          <div class="sponsor-card h-100">
+            <div class="sponsor-logo-container">
+              <img src="{{ sponsor.logo }}" class="sponsor-logo" alt="{{ sponsor.name }}">
+            </div>
+            <div class="card-body">
+              <h5 class="sponsor-name fw-bold mb-3">{{ sponsor.name }}</h5>
+              <p class="card-text text-muted">{{ sponsor.description }}</p>
+            </div>
+            <div class="card-footer bg-white border-top-0 text-center">
+              {% if sponsor.website %}
+              <a href="{{ sponsor.website }}" class="btn btn-visit" target="_blank">
+                <i class="fas fa-external-link-alt me-2"></i> Visit Website
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="no-sponsors-alert alert text-center wow animate__fadeIn" role="alert">
+        <i class="fas fa-info-circle me-2"></i> No sponsors available at this time.
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- JavaScript Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+  new WOW().init();
+  
+  // Enhanced hover effects
+  document.querySelectorAll('.sponsor-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-10px)';
+      this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.15)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+      this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+    });
+  });
+</script>
+{% endblock content %}

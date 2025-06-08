@@ -1,0 +1,131 @@
+{% extends "index.html" %}
+{% block hed %}
+<section>
+     <div class="breadcrumbs-custom context-dark bg-success text-center">
+          <div class="container">
+               <h2 class="breadcrumbs-custom-title text-white p-4 fs-1">Membership Benefits</h2>
+          </div>
+          <div class="box-position"></div>
+     </div>
+</section>
+
+{% endblock hed %}
+
+{% block content %}
+
+<link rel="stylesheet" href="static/previous_leader.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<section class="benefits-section py-5">
+     <div class="container">
+          <!-- Section Header -->
+          <div class="text-center mb-5 wow animate__fadeInDown">
+               <span class="section-subtitle text-uppercase">Why Join Us</span>
+               <h2 class="section-title mt-2">Benefits of Membership</h2>
+               <div class="divider mx-auto my-3"
+                    style="height: 3px; width: 80px; background: linear-gradient(to right, #198754, #20c997);"></div>
+               <p class="text-muted mx-auto" style="max-width: 700px;">
+                    Becoming a member of the Telugu Association of Nigeria comes with a wide range of benefits that
+                    support
+                    cultural growth, social bonding, and mutual development.
+               </p>
+          </div>
+
+          <!-- Benefits Grid -->
+          <div class="row g-4">
+               <!-- Benefit 1 -->
+               <div class="col-md-6 col-lg-4 wow animate__fadeInUp">
+                    <div class="benefit-card shadow-lg p-4">
+                         <div class="benefit-icon mb-3 text-success fs-1"><i class="fas fa-users"></i></div>
+                         <h4 class="benefit-title fw-bold mb-3">Community Connection</h4>
+                         <p class="text-muted">
+                              Stay connected with the Telugu community through regular events, cultural gatherings, and
+                              community updates.
+                         </p>
+                    </div>
+               </div>
+
+               <!-- Benefit 2 -->
+               <div class="col-md-6 col-lg-4 wow animate__fadeInUp">
+                    <div class="benefit-card shadow-lg p-4">
+                         <div class="benefit-icon mb-3 text-success fs-1"><i class="fas fa-calendar-check"></i></div>
+                         <h4 class="benefit-title fw-bold mb-3">Exclusive Event Access</h4>
+                         <p class="text-muted">
+                              Enjoy priority invitations and special member discounts at all our cultural festivals,
+                              social events, and workshops.
+                         </p>
+                    </div>
+               </div>
+
+               <!-- Benefit 3 -->
+               <div class="col-md-6 col-lg-4 wow animate__fadeInUp">
+                    <div class="benefit-card shadow-lg p-4">
+                         <div class="benefit-icon mb-3 text-success fs-1"><i class="fas fa-handshake"></i></div>
+                         <h4 class="benefit-title fw-bold mb-3">Networking Opportunities</h4>
+                         <p class="text-muted">
+                              Connect with professionals, entrepreneurs, and community leaders through our exclusive
+                              networking events.
+                         </p>
+                    </div>
+               </div>
+
+               <!-- Benefit 4 -->
+               <div class="col-md-6 col-lg-4 wow animate__fadeInUp">
+                    <div class="benefit-card shadow-lg p-4">
+                         <div class="benefit-icon mb-3 text-success fs-1"><i class="fas fa-heart"></i></div>
+                         <h4 class="benefit-title fw-bold mb-3">Support System</h4>
+                         <p class="text-muted">
+                              Access our community support network during emergencies, celebrations, and important life
+                              events.
+                         </p>
+                    </div>
+               </div>
+
+               <!-- Benefit 5 -->
+               <div class="col-md-6 col-lg-4 wow animate__fadeInUp">
+                    <div class="benefit-card shadow-lg p-4">
+                         <div class="benefit-icon mb-3 text-success fs-1"><i class="fas fa-language"></i></div>
+                         <h4 class="benefit-title fw-bold mb-3">Cultural Preservation</h4>
+                         <p class="text-muted">
+                              Participate in language classes, traditional workshops, and cultural programs that keep
+                              our heritage alive.
+                         </p>
+                    </div>
+               </div>
+
+               <!-- Benefit 6 -->
+               <div class="col-md-6 col-lg-4 wow animate__fadeInUp">
+                    <div class="benefit-card shadow-lg p-4">
+                         <div class="benefit-icon mb-3 text-success fs-1"><i class="fas fa-child"></i></div>
+                         <h4 class="benefit-title fw-bold mb-3">Youth Programs</h4>
+                         <p class="text-muted">
+                              Enroll your children in our youth programs designed to connect them with Telugu culture
+                              and values.
+                         </p>
+                    </div>
+               </div>
+          </div>
+     </div>
+</section>
+
+<!-- JavaScript Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+     new WOW().init();
+
+     // Enhanced hover effects
+     document.querySelectorAll('.benefit-card').forEach(card => {
+          card.addEventListener('mouseenter', function () {
+               this.style.transform = 'translateY(-10px)';
+               this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.15)';
+          });
+
+          card.addEventListener('mouseleave', function () {
+               this.style.transform = 'translateY(0)';
+               this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+          });
+     });
+</script>
+
+{% endblock content %}

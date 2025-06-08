@@ -1,0 +1,1257 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+     <!-- Required meta tags -->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css2?family=Ponnala&display=swap" rel="stylesheet">
+     <!-- Font Awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+     <!-- Animate.css -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+     <link rel="stylesheet" href="static/style.css">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins :wght@400;600&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper @11/swiper-bundle.min.css"/>
+     <title>Telugu Association of Nigeria</title>
+</head>
+
+<body>
+     {% block header %}
+     <!-- Enhanced Fixed Navbar -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-lg fixed-top">
+          <div class="container">
+               <a class="navbar-brand fw-bold d-flex align-items-center" href="/">
+                    <img src="static\images\gallery\image3.png"
+                         alt="TAN Logo" class="logo me-2">
+                    <div class="brand-text">
+                         <span class="d-lg-none center fw-bold fs-4">TAN</span>
+                         <span class="d-none d-lg-inline fw-bold fs-5">Telugu Association of Nigeria</span>
+                    </div>
+               </a>
+
+               <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#tanNavbar" aria-controls="tanNavbar" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+               </button>
+
+               <div class="collapse navbar-collapse" id="tanNavbar">
+                    <ul class="navbar-nav ms-auto">
+                         <li class="nav-item me-1">
+                              <a class="nav-link nav-link-custom" href="/">
+                                   <i class="fas fa-home me-1 d-lg-none"></i>Home
+                              </a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link nav-link-custom" href="/about">
+                                   <i class="fas fa-info-circle me-1 d-lg-none"></i>About
+                              </a>
+                         </li>
+
+                         <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle nav-link-custom" href="#" role="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                   <i class="fas fa-users-cog me-1 d-lg-none"></i>Leadership
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-custom">
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/founders">
+                                             <i class="fas fa-user-shield me-2"></i>Founders
+                                        </a></li>
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/trustees">
+                                             <i class="fas fa-users me-2"></i>Trustees
+                                        </a></li>
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/previous-leadership">
+                                             <i class="fas fa-history me-2"></i>Previous Leadership
+                                        </a></li>
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/present-leadership">
+                                             <i class="fas fa-user-tie me-2"></i>Present Leadership
+                                        </a></li>
+                              </ul>
+                         </li>
+
+                         <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle nav-link-custom" href="#" role="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                   <i class="fas fa-user-friends me-1 d-lg-none"></i>Members
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-custom">
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/membership-form">
+                                             <i class="fas fa-file-signature me-2"></i>Membership Form
+                                        </a></li>
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/membership-benefits">
+                                             <i class="fas fa-gift me-2"></i>Membership Benefits
+                                        </a></li>
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/members-details">
+                                             <i class="fas fa-address-card me-2"></i>Members Details
+                                        </a></li>
+                              </ul>
+                         </li>
+
+                         <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle nav-link-custom" href="#" role="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                   <i class="fas fa-handshake me-1 d-lg-none"></i>Sponsors
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-custom">
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/sponsors-slider">
+                                             <i class="fas fa-images me-2"></i>Sponsors Slider
+                                        </a></li>
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/sponsors-details">
+                                             <i class="fas fa-info-circle me-2"></i>Sponsors Details
+                                        </a></li>
+                              </ul>
+                         </li>
+
+                         <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle nav-link-custom" href="#" role="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                   <i class="fas fa-images me-1 d-lg-none"></i>Gallery
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-custom">
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/gallery-old">
+                                             <i class="fas fa-photo-film me-2"></i>Old Pictures
+                                        </a></li>
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/gallery-current">
+                                             <i class="fas fa-camera me-2"></i>Current Pictures
+                                        </a></li>
+                              </ul>
+                         </li>
+
+                         <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle nav-link-custom" href="#" role="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                   <i class="fas fa-calendar me-1 d-lg-none"></i>Calendar
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-custom">
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/events">
+                                             <i class="fas fa-calendar-day me-2"></i>Events
+                                        </a></li>
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/telugu-calendar">
+                                             <i class="fas fa-calendar-alt me-2"></i>Telugu Calendar
+                                        </a></li>
+                              </ul>
+                         </li>
+
+                         <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle nav-link-custom" href="#" role="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                   <i class="fas fa-place-of-worship me-1 d-lg-none"></i>Temples
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-custom">
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/temples">
+                                             <i class="fas fa-place-of-worship me-2"></i>List of Temples
+                                        </a></li>
+                              </ul>
+                         </li>
+
+                         <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle nav-link-custom" href="#" role="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                   <i class="fas fa-building me-1 d-lg-none"></i>Corporate
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-custom">
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/jobs">
+                                             <i class="fas fa-search-plus me-2"></i>Jobs
+                                        </a></li>
+                              </ul>
+                         </li>
+
+                         <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle nav-link-custom" href="#" role="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                   <i class="fas fa-newspaper me-1 d-lg-none"></i>Articles
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-custom">
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/articles">
+                                             <i class="fas fa-newspaper me-2"></i>Articles
+                                        </a></li>
+                              </ul>
+                         </li>
+
+                         <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle nav-link-custom" href="#" role="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                   <i class="fas fa-phone me-1 d-lg-none"></i>Contact
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-custom">
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/contact">
+                                             <i class="fas fa-id-card me-2"></i>Contact IDs
+                                        </a></li>
+                                   <li><a class="dropdown-item dropdown-item-custom" href="/emergency-contacts">
+                                             <i class="fas fa-phone-alt me-2"></i>Emergency Contacts
+                                        </a></li>
+                              </ul>
+                         </li>
+                    </ul>
+               </div>
+          </div>
+     </nav>
+
+     {% endblock header %}
+
+     {% block hed %} {% endblock hed %}
+
+     {% block social %}
+
+
+     <!-- Social Media Icons - Desktop Version -->
+     <div class="social-icons-desktop">
+          <a href="https://www.facebook.com/TAGDVTelugu/" target="_blank" class="facebook" aria-label="Facebook">
+               <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/tagdvphilly/" target="_blank" class="instagram" aria-label="Instagram">
+               <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/channel/UCfeAodcRkZ6LMEHcDKZJ7FA" target="_blank" class="youtube"
+               aria-label="YouTube">
+               <i class="fab fa-youtube"></i>
+          </a>
+          <a href="http://www.linkedin.com/company/tagdvtelugu" target="_blank" class="linkedin" aria-label="LinkedIn">
+               <i class="fab fa-linkedin-in"></i>
+          </a>
+     </div>
+
+     <!-- Social Media Icons - Mobile Version -->
+     <div class="social-icons-mobile">
+          <a href="https://www.facebook.com/TAGDVTelugu/" target="_blank" class="facebook" aria-label="Facebook">
+               <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/tagdvphilly/" target="_blank" class="instagram" aria-label="Instagram">
+               <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/channel/UCfeAodcRkZ6LMEHcDKZJ7FA" target="_blank" class="youtube"
+               aria-label="YouTube">
+               <i class="fab fa-youtube"></i>
+          </a>
+          <a href="http://www.linkedin.com/company/tagdvtelugu" target="_blank" class="linkedin" aria-label="LinkedIn">
+               <i class="fab fa-linkedin-in"></i>
+          </a>
+     </div>
+
+     {% endblock social %}
+
+     {% block content %}
+
+     <!-- Enhanced Hero Carousel -->
+     <div class="container mt-4 pt-5">
+          <h1 class="text-center mb-5 text-dark telugu-text display-4 animate__animated animate__fadeInDown">తెలుగు
+               అసోసియేషన్ ఆఫ్ నైజీరియా</h1>
+
+          <!-- Enhanced Carousel -->
+          <div id="tanCarousel" class="carousel slide carousel-fade mb-5 position-relative" data-bs-ride="carousel"
+               data-bs-interval="4000">
+               <!-- Custom Progress Bar -->
+               <div class="carousel-progress">
+                    <div class="progress-bar"></div>
+               </div>
+
+               <!-- Enhanced Indicators -->
+               <div class="carousel-indicators custom-indicators">
+                    <button type="button" data-bs-target="#tanCarousel" data-bs-slide-to="0" class="active"
+                         aria-current="true" aria-label="Slide 1">
+                         <span class="indicator-label">Welcome</span>
+                    </button>
+                    <button type="button" data-bs-target="#tanCarousel" data-bs-slide-to="1" aria-label="Slide 2">
+                         <span class="indicator-label">Culture</span>
+                    </button>
+                    <button type="button" data-bs-target="#tanCarousel" data-bs-slide-to="2" aria-label="Slide 3">
+                         <span class="indicator-label">Sponsors</span>
+                    </button>
+               </div>
+
+               <div class="carousel-inner rounded-4 shadow-lg overflow-hidden">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                         <div class="carousel-image-container">
+                              <img src="https://img.freepik.com/premium-photo/beautiful-national-state-flags-nigeria-india-together_337817-2755.jpg"
+                                   class="d-block w-100 carousel-image" alt="TAN Event 1">
+                              <div class="carousel-overlay"></div>
+                         </div>
+                         <div class="carousel-caption custom-caption">
+                              <div class="caption-content animate__animated animate__fadeInUp">
+                                   <span class="caption-badge mb-3">
+                                        <i class="fas fa-star me-2"></i>Welcome
+                                   </span>
+                                   <h2 class="display-5 fw-bold mb-3">Welcome to TAN</h2>
+                                   <p class="fs-5 mb-4">Telugu Association Website - Celebrating Unity & Culture in
+                                        Nigeria</p>
+                                   <div class="caption-buttons">
+                                        <a href="/about" class="btn btn-light btn-lg me-3 btn-animated">
+                                             <i class="fas fa-info-circle me-2"></i>Learn More
+                                        </a>
+                                        <a href="/membership-form" class="btn btn-outline-light btn-lg btn-animated">
+                                             <i class="fas fa-users me-2"></i>Join Us
+                                        </a>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                         <div class="carousel-image-container">
+                              <img src="https://www.travellersofindia.com/wp-content/uploads/2021/05/The_Unique_Culture_of_India_5_Major_Traditions__Indian_Customs_TravellersofIndia.jpg"
+                                   class="d-block w-100 carousel-image" alt="TAN Event 2">
+                              <div class="carousel-overlay"></div>
+                         </div>
+                         <div class="carousel-caption custom-caption">
+                              <div class="caption-content animate__animated animate__fadeInUp">
+                                   <span class="caption-badge mb-3">
+                                        <i class="fas fa-calendar-alt me-2"></i>Events
+                                   </span>
+                                   <h2 class="display-5 fw-bold mb-3">Annual Cultural Program</h2>
+                                   <p class="fs-5 mb-4">Join us for vibrant performances, traditional dances, and
+                                        cultural celebrations</p>
+                                   <div class="caption-buttons">
+                                        <a href="/events" class="btn btn-light btn-lg me-3 btn-animated">
+                                             <i class="fas fa-calendar me-2"></i>View Events
+                                        </a>
+                                        <a href="/gallery" class="btn btn-outline-light btn-lg btn-animated">
+                                             <i class="fas fa-images me-2"></i>Gallery
+                                        </a>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                         <div class="carousel-image-container">
+                              <img src="https://media.licdn.com/dms/image/v2/C561BAQE-51J-8KkMZg/company-background_10000/company-background_10000/0/1584559866970/eventscom_cover?e=2147483647&v=beta&t=3bktbE7ts5aNwH8XEUM5rW0G2aMbuQ1b2dHBVQgZqmA"
+                                   class="d-block w-100 carousel-image" alt="TAN Sponsors">
+                              <div class="carousel-overlay"></div>
+                         </div>
+                         <div class="carousel-caption custom-caption">
+                              <div class="caption-content animate__animated animate__fadeInUp">
+                                   <span class="caption-badge mb-3">
+                                        <i class="fas fa-handshake me-2"></i>Gratitude
+                                   </span>
+                                   <h2 class="display-5 fw-bold mb-3">Thank You Sponsors</h2>
+                                   <p class="fs-5 mb-4">Your generous support makes our community initiatives and events
+                                        possible</p>
+                                   <div class="caption-buttons">
+                                        <a href="/sponsors" class="btn btn-light btn-lg me-3 btn-animated">
+                                             <i class="fas fa-heart me-2"></i>Our Sponsors
+                                        </a>
+                                        <a href="/contact" class="btn btn-outline-light btn-lg btn-animated">
+                                             <i class="fas fa-envelope me-2"></i>Partner With Us
+                                        </a>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+
+               <!-- Enhanced Controls -->
+               <button class="carousel-control-prev custom-control" type="button" data-bs-target="#tanCarousel"
+                    data-bs-slide="prev">
+                    <div class="control-icon">
+                         <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <span class="visually-hidden">Previous</span>
+               </button>
+               <button class="carousel-control-next custom-control" type="button" data-bs-target="#tanCarousel"
+                    data-bs-slide="next">
+                    <div class="control-icon">
+                         <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <span class="visually-hidden">Next</span>
+               </button>
+
+               <!-- Slide Counter -->
+               <div class="slide-counter">
+                    <span class="current-slide">01</span>
+                    <span class="divider">/</span>
+                    <span class="total-slides">03</span>
+               </div>
+          </div>
+     </div>
+
+     <div class="container-fluid px-0">
+          <!-- Hero Section -->
+          <div class="bg-light py-5 text-center">
+               <h1 class="display-5 fw-bold text-success">Telugu Association of Nigeria</h1>
+               <p class="lead text-muted mb-4">Uniting Telugus across Nigeria through culture, community, and
+                    compassion.</p>
+          </div>
+
+
+          <!-- script corosoul -->
+          <script>
+               // Enhanced carousel functionality
+               document.addEventListener('DOMContentLoaded', function () {
+                    const carousel = document.querySelector('#tanCarousel');
+                    const progressBar = document.querySelector('.progress-bar');
+                    const currentSlideSpan = document.querySelector('.current-slide');
+                    const totalSlidesSpan = document.querySelector('.total-slides');
+
+                    if (carousel) {
+                         const carouselInstance = new bootstrap.Carousel(carousel, {
+                              interval: 4000,
+                              wrap: true,
+                              touch: true
+                         });
+
+                         // Update slide counter and progress bar
+                         function updateCarouselInfo() {
+                              const activeSlide = carousel.querySelector('.carousel-item.active');
+                              const slides = carousel.querySelectorAll('.carousel-item');
+                              const activeIndex = Array.from(slides).indexOf(activeSlide);
+
+                              if (currentSlideSpan) {
+                                   currentSlideSpan.textContent = String(activeIndex + 1).padStart(2, '0');
+                              }
+
+                              if (totalSlidesSpan) {
+                                   totalSlidesSpan.textContent = String(slides.length).padStart(2, '0');
+                              }
+
+                              // Reset and restart progress bar
+                              if (progressBar) {
+                                   progressBar.style.transition = 'none';
+                                   progressBar.style.width = '0%';
+                                   setTimeout(() => {
+                                        progressBar.style.transition = 'width 4s linear';
+                                        progressBar.style.width = '100%';
+                                   }, 50);
+                              }
+                         }
+
+                         // Initialize
+                         updateCarouselInfo();
+
+                         // Listen for slide events
+                         carousel.addEventListener('slide.bs.carousel', function () {
+                              updateCarouselInfo();
+                         });
+
+                         // Pause on hover
+                         carousel.addEventListener('mouseenter', function () {
+                              carouselInstance.pause();
+                              if (progressBar) {
+                                   progressBar.style.animationPlayState = 'paused';
+                              }
+                         });
+
+                         carousel.addEventListener('mouseleave', function () {
+                              carouselInstance.cycle();
+                              if (progressBar) {
+                                   progressBar.style.animationPlayState = 'running';
+                              }
+                         });
+
+                         // Keyboard navigation
+                         document.addEventListener('keydown', function (e) {
+                              if (e.key === 'ArrowLeft') {
+                                   carouselInstance.prev();
+                              } else if (e.key === 'ArrowRight') {
+                                   carouselInstance.next();
+                              }
+                         });
+                    }
+
+                    // Smooth scrolling for anchor links
+                    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+                    anchorLinks.forEach(link => {
+                         link.addEventListener('click', function (e) {
+                              e.preventDefault();
+                              const target = document.querySelector(this.getAttribute('href'));
+                              if (target) {
+                                   target.scrollIntoView({
+                                        behavior: 'smooth',
+                                        block: 'start'
+                                   });
+                              }
+                         });
+                    });
+
+                    // Add animation delays
+                    const animatedElements = document.querySelectorAll('[data-animate-delay]');
+                    animatedElements.forEach(element => {
+                         const delay = element.getAttribute('data-animate-delay');
+                         element.style.animationDelay = delay + 's';
+                    });
+
+                    // Newsletter form handling
+                    const newsletterForm = document.querySelector('footer form');
+                    if (newsletterForm) {
+                         newsletterForm.addEventListener('submit', function (e) {
+                              e.preventDefault();
+                              const email = this.querySelector('input[type="email"]').value;
+                              if (email) {
+                                   alert('Thank you for subscribing to our newsletter!');
+                                   this.querySelector('input[type="email"]').value = '';
+                              }
+                         });
+                    }
+
+                    // Add scroll effect to navbar
+                    window.addEventListener('scroll', function () {
+                         const navbar = document.querySelector('.navbar');
+                         if (window.scrollY > 50) {
+                              navbar.style.backgroundColor = 'rgba(25, 135, 84, 0.95)';
+                              navbar.style.backdropFilter = 'blur(10px)';
+                         } else {
+                              navbar.style.backgroundColor = '#198754';
+                              navbar.style.backdropFilter = 'none';
+                         }
+                    });
+
+                    // Add loading animation to cards on scroll
+                    const observerOptions = {
+                         threshold: 0.1,
+                         rootMargin: '0px 0px -50px 0px'
+                    };
+
+                    const observer = new IntersectionObserver(function (entries) {
+                         entries.forEach(entry => {
+                              if (entry.isIntersecting) {
+                                   entry.target.style.opacity = '1';
+                                   entry.target.style.transform = 'translateY(0)';
+                              }
+                         });
+                    }, observerOptions);
+
+                    // Observe all cards for scroll animations
+                    const cards = document.querySelectorAll('.card');
+                    cards.forEach(card => {
+                         card.style.opacity = '0';
+                         card.style.transform = 'translateY(20px)';
+                         card.style.transition = 'all 0.6s ease';
+                         observer.observe(card);
+                    });
+
+                    // Social media icon pulse effect
+                    const socialIcons = document.querySelectorAll('.social-icons-desktop a, .social-icons-mobile a');
+                    socialIcons.forEach(icon => {
+                         icon.addEventListener('mouseenter', function () {
+                              this.style.animation = 'pulse 0.6s infinite';
+                         });
+
+                         icon.addEventListener('mouseleave', function () {
+                              this.style.animation = 'none';
+                         });
+                    });
+
+                    // Add pulse animation keyframes
+                    const style = document.createElement('style');
+                    style.textContent = `
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    `;
+                    document.head.appendChild(style);
+               });
+
+               // Touch/swipe support for mobile
+               let touchStartX = 0;
+               let touchEndX = 0;
+
+               document.addEventListener('touchstart', function (e) {
+                    touchStartX = e.changedTouches[0].screenX;
+               });
+
+               document.addEventListener('touchend', function (e) {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+               });
+
+               function handleSwipe() {
+                    const carousel = document.querySelector('#tanCarousel');
+                    if (!carousel) return;
+
+                    const carouselInstance = bootstrap.Carousel.getInstance(carousel);
+                    if (!carouselInstance) return;
+
+                    const swipeThreshold = 50;
+                    const diff = touchStartX - touchEndX;
+
+                    if (Math.abs(diff) > swipeThreshold) {
+                         if (diff > 0) {
+                              // Swipe left - next slide
+                              carouselInstance.next();
+                         } else {
+                              // Swipe right - previous slide
+                              carouselInstance.prev();
+                         }
+                    }
+               }
+          </script>
+
+          <section class="container my-6 py-5">
+               <div class="row align-items-center g-5">
+                    <div class="col-lg-6 order-2 order-lg-1">
+                         <div class="position-relative">
+                              <img src="static/images/gallery/image3.png" alt="Telugu Community Nigeria"
+                                   class="img- rounded shadow-sm w-100 object-fit-cover" style="height: 100%;">
+                              <div
+                                   class="position-absolute top-0 start-0 m-3 bg-success text-white px-3 py-2 rounded-pill fw-bold">
+                                   Since 1995
+                              </div>
+                              <div
+                                   class="position-absolute bottom-0 end-0 m-3 text-white bg-dark bg-opacity-75 p-3 rounded">
+                                   Celebrating Telugu culture in Nigeria
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-lg-6 order-1 order-lg-2 mb-4 mb-lg-0">
+                         <h2 class="fw-bold text-success">Who We Are</h2>
+                         <p class="text-muted mt-3 fs-5">
+                              The Telugu Association of Nigeria (TAN) is a vibrant cultural organization dedicated to
+                              preserving the rich heritage of Telugu people in Nigeria.
+                         </p>
+
+                         <ul class="list-unstyled mt-4">
+                              <li class="d-flex align-items-start mb-3">
+                                   <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                                   <span>We foster unity through cultural events, educational support, and community
+                                        services.</span>
+                              </li>
+                              <li class="d-flex align-items-start mb-3">
+                                   <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                                   <span>Our members represent diverse professions united by shared Telugu
+                                        traditions.</span>
+                              </li>
+                         </ul>
+                    </div>
+               </div>
+          </section>
+
+          <!-- Stats Section -->
+          <!-- Stats Section -->
+          <section id="numbers" class="py-5 bg-light">
+               <!-- Stats Section -->
+               <section id="stats" class="py-5 bg-light text-center">
+                    <div class="container">
+                         <h2 class="display-5 fw-bold mb-4">Our Impact</h2>
+                         <p class="lead text-muted mb-5">We bring people together through culture, language, and
+                              community.</p>
+
+                         <div class="row g-4 justify-content-center">
+
+                              <div class="col-md-3 col-6">
+                                   <div class="stat-number fw-bold display-4 text-success" data-target="500">0+</div>
+                                   <div class="stat-label text-uppercase small text-muted">Community Members</div>
+                              </div>
+
+                              <div class="col-md-3 col-6">
+                                   <div class="stat-number fw-bold display-4 text-success" data-target="20">0+</div>
+                                   <div class="stat-label text-uppercase small text-muted">Cultural Events</div>
+                              </div>
+
+                              <div class="col-md-3 col-6">
+                                   <div class="stat-number fw-bold display-4 text-success" data-target="15">0+</div>
+                                   <div class="stat-label text-uppercase small text-muted">Cities Covered</div>
+                              </div>
+
+                              <div class="col-md-3 col-6">
+                                   <div class="stat-number fw-bold display-4 text-success" data-target="2500">0+</div>
+                                   <div class="stat-label text-uppercase small text-muted">Event Attendees</div>
+                              </div>
+
+                              <div class="col-md-3 col-6">
+                                   <div class="stat-number fw-bold display-4 text-success" data-target="8">0</div>
+                                   <div class="stat-label text-uppercase small text-muted">Languages Spoken</div>
+                              </div>
+
+                              <div class="col-md-3 col-6">
+                                   <div class="stat-number fw-bold display-4 text-success" data-target="12">0+</div>
+                                   <div class="stat-label text-uppercase small text-muted">Youth Programs</div>
+                              </div>
+
+                              <div class="col-md-3 col-6">
+                                   <div class="stat-number fw-bold display-4 text-success" data-target="5">0+</div>
+                                   <div class="stat-label text-uppercase small text-muted">Years Active</div>
+                              </div>
+
+                              <div class="col-md-3 col-6">
+                                   <div class="stat-number fw-bold display-4 text-success" data-target="100">0+</div>
+                                   <div class="stat-label text-uppercase small text-muted">Families Connected</div>
+                              </div>
+
+                         </div>
+                    </div>
+               </section>
+
+               <!-- script numbers -->
+               <!-- Script to animate stats -->
+               <script>
+                    const counters = document.querySelectorAll('.stat-number');
+                    const speed = 200;
+
+                    const observer = new IntersectionObserver(entries => {
+                         entries.forEach(entry => {
+                              const target = entry.target;
+                              if (entry.isIntersecting && !target.classList.contains('animated')) {
+                                   target.classList.add('animated');
+
+                                   const targetNumber = parseInt(target.getAttribute('data-target'));
+                                   const isPlus = target.innerHTML.includes('+');
+                                   let count = 0;
+
+                                   const updateCount = () => {
+                                        const increment = Math.max(Math.ceil(targetNumber / speed), 1);
+
+                                        if (count < targetNumber) {
+                                             count += increment;
+                                             target.innerText = count + (isPlus ? '+' : '');
+                                             setTimeout(updateCount, 10);
+                                        } else {
+                                             target.innerText = targetNumber + (isPlus ? '+' : '');
+                                        }
+                                   };
+
+                                   updateCount();
+                              }
+                         });
+                    }, { threshold: 0.7 });
+
+                    counters.forEach(counter => {
+                         observer.observe(counter);
+                    });
+               </script>
+               <!-- youtube -->
+               <section class="video-section py-5 bg-light">
+                    <div class="container">
+                         <div class="row justify-content-center">
+                              <div class="col-lg-8 col-md-10">
+                                   <div class="video-wrapper shadow-sm rounded overflow-hidden">
+                                        <div class="video-container ratio ratio-16x9">
+                                             <iframe class="video-frame"
+                                                  src="https://www.youtube.com/embed/1XY_tgcRH28 "
+                                                  title="YouTube video player" frameborder="0" allowfullscreen>
+                                             </iframe>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </section>
+
+               <!-- Testimonials Section -->
+               <section class="testimonials-section bg-light">
+                    <div class="container">
+                         <div class="text-center mb-5">
+                              <h2 class="display-5 fw-bold">What Our Community Says</h2>
+                              <p class="lead text-muted">Hear from students, educators, and partners who've benefited
+                                   from Tan Academy.</p>
+                         </div>
+
+                         <!-- Swiper Carousel -->
+                         <div class="testimonial-carousel swiper">
+                              <div class="swiper-wrapper">
+
+                                   <!-- Slide 1 -->
+                                   <div class="swiper-slide">
+                                        <div class="profile-container p-4 h-100">
+                                             <div class="profile-details d-flex align-items-center mb-3">
+                                                  <img loading="lazy" src="static\images\gallery\image2.jpg"
+                                                       alt="Profile Image" class="profile-image rounded-circle me-3">
+                                                  <div class="profile-text">
+                                                       <div class="profile-name fw-bold">Raja Murugadoss Jeyaraju</div>
+                                                       <div class="profile-designation">Director - NSRIT (A)</div>
+                                                  </div>
+                                             </div>
+                                             <div class="profile-bio">
+                                                  "Tan Academy offers an array of engaging projects and programs that
+                                                  introduce students to real-world technologies. It's been instrumental
+                                                  in enhancing our curriculum and preparing students for future
+                                                  careers."
+                                             </div>
+                                        </div>
+                                   </div>
+
+                                   <!-- Slide 2 -->
+                                   <div class="swiper-slide">
+                                        <div class="profile-container p-4 h-100">
+                                             <div class="profile-details d-flex align-items-center mb-3">
+                                                  <img loading="lazy" src="static\images\gallery\image2.jpg"
+                                                       alt="Profile Image" class="profile-image rounded-circle me-3">
+                                                  <div class="profile-text">
+                                                       <div class="profile-name fw-bold">Dr. D. Sreedevi</div>
+                                                       <div class="profile-designation">H.O.D - GVP College of Degree
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                             <div class="profile-bio">
+                                                  "The hands-on experience provided by Tan Academy has made a
+                                                  significant impact on how we approach education. It’s a valuable
+                                                  resource for educators looking to inspire the next generation."
+                                             </div>
+                                        </div>
+                                   </div>
+
+                                   <!-- Slide 3 -->
+                                   <div class="swiper-slide">
+                                        <div class="profile-container p-4 h-100">
+                                             <div class="profile-details d-flex align-items-center mb-3">
+                                                  <img loading="lazy" src="static\images\gallery\image2.jpg"
+                                                       alt="Profile Image" class="profile-image rounded-circle me-3">
+                                                  <div class="profile-text">
+                                                       <div class="profile-name fw-bold">K. Jagadeshwar Reddy</div>
+                                                       <div class="profile-designation">M.D - Elegant Embeddent
+                                                            Solutions Pvt Ltd</div>
+                                                  </div>
+                                             </div>
+                                             <div class="profile-bio">
+                                                  "Tan Academy has revolutionized how we engage with STEM education.
+                                                  Many participants have gained practical skills and insights that will
+                                                  serve them well in their professional journeys."
+                                             </div>
+                                        </div>
+                                   </div>
+
+                              </div>
+
+                              <!-- Pagination Dots -->
+                              <div class="swiper-pagination mt-4"></div>
+                         </div>
+                    </div>
+               </section>
+
+               <!-- Swiper JS -->
+               <script src="https://cdn.jsdelivr.net/npm/swiper @11/swiper-bundle.min.js"></script>
+
+               <!-- Initialize Swiper -->
+               <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                         new Swiper('.testimonial-carousel', {
+                              loop: true,
+                              spaceBetween: 30,
+                              pagination: {
+                                   el: '.swiper-pagination',
+                                   clickable: true,
+                              },
+                              autoplay: {
+                                   delay: 4000,
+                                   disableOnInteraction: false,
+                              },
+                              breakpoints: {
+                                   640: { slidesPerView: 1 },
+                                   768: { slidesPerView: 2 },
+                                   1024: { slidesPerView: 3 }
+                              }
+                         });
+                    });
+               </script>
+
+               <script src="https://cdn.jsdelivr.net/npm/swiper @11/swiper-bundle.min.js"></script>
+               <script>
+                    const swiper = new Swiper('.testimonial-carousel', {
+                         loop: true,
+                         spaceBetween: 30,
+                         pagination: {
+                              el: '.swiper-pagination',
+                              clickable: true,
+                         },
+                         autoplay: {
+                              delay: 4000,
+                              disableOnInteraction: false,
+                         },
+                         breakpoints: {
+                              640: { slidesPerView: 1 },
+                              768: { slidesPerView: 2 },
+                              1024: { slidesPerView: 3 }
+                         }
+                    });
+               </script>
+
+              
+               <!-- Core Values -->
+               <section class="bg-light py-5">
+                    <div class="container text-center">
+                         <h2 class="fw-bold text-success mb-4">Our Pillars</h2>
+                         <div class="row g-4 justify-content-center">
+                              <div class="col-md-3 col-sm-6">
+                                   <div class="p-4 bg-white rounded shadow-sm h-100 animate__animated animate__fadeInUp"
+                                        style="animation-delay: 0.1s;">
+                                        <i class="fas fa-handshake fa-2x text-success mb-3"></i>
+                                        <h6>Unity</h6>
+                                   </div>
+                              </div>
+                              <div class="col-md-3 col-sm-6">
+                                   <div class="p-4 bg-white rounded shadow-sm h-100 animate__animated animate__fadeInUp"
+                                        style="animation-delay: 0.2s;">
+                                        <i class="fas fa-star fa-2x text-success mb-3"></i>
+                                        <h6>Cultural Pride</h6>
+                                   </div>
+                              </div>
+                              <div class="col-md-3 col-sm-6">
+                                   <div class="p-4 bg-white rounded shadow-sm h-100 animate__animated animate__fadeInUp"
+                                        style="animation-delay: 0.3s;">
+                                        <i class="fas fa-users fa-2x text-success mb-3"></i>
+                                        <h6>Community</h6>
+                                   </div>
+                              </div>
+                              <div class="col-md-3 col-sm-6">
+                                   <div class="p-4 bg-white rounded shadow-sm h-100 animate__animated animate__fadeInUp"
+                                        style="animation-delay: 0.4s;">
+                                        <i class="fas fa-heart fa-2x text-success mb-3"></i>
+                                        <h6>Service</h6>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </section>
+
+               <!-- Leadership / Team Section -->
+               <section class="container my-5">
+                    <h2 class="text-center fw-bold text-success mb-4">Meet Our Leadership</h2>
+                    <div class="row g-4">
+                         <div class="col-md-4">
+                              <div class="card border-0 shadow-sm transition-hover h-100">
+                                   <img src="https://png.pngtree.com/thumb_back/fh260/background/20241007/pngtree-linkedin-cover-image-featuring-a-professional-woman-image_16339305.jpg" class="card-img-top rounded-top"
+                                        alt="Leader">
+                                   <div class="card-body text-center">
+                                        <h5 class="fw-bold">Sri Krishna Reddy</h5>
+                                        <p class="text-muted mb-1">President</p>
+                                        <p>Telugu Association of Nigeria</p>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-md-4">
+                              <div class="card border-0 shadow-sm transition-hover h-70">
+                                   <img src="https://cdn.pixabay.com/photo/2020/09/18/22/05/man-5583035_1280.jpg" class="card-img-top rounded-top " style="height: 70%"
+                                        alt="Leader">
+                                   <div class="card-body text-center">
+                                        <h5 class="fw-bold">Dr. Latha Rao</h5>
+                                        <p class="text-muted mb-1">Vice President</p>
+                                        <p>Community Outreach Coordinator</p>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-md-4">
+                              <div class="card border-0 shadow-sm transition-hover h-70">
+                                   <img src="https://cdn.pixabay.com/photo/2020/09/18/22/05/man-5583034_1280.jpg" class="card-img-top rounded-top" style="height: 70%"
+                                        alt="Leader">
+                                   <div class="card-body text-center">
+                                        <h5 class="fw-bold">Rajesh Kumar</h5>
+                                        <p class="text-muted mb-1">Secretary</p>
+                                        <p>Event & Cultural Organizer</p>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </section>
+
+               <!-- Sponsor Logos -->
+               <section class="py-5 bg-white">
+                    <div class="container text-center">
+                         <h5 class="text-muted">Our Valued Sponsors</h5>
+                         <div class="d-flex flex-wrap justify-content-center gap-4 align-items-center mt-4">
+                              <img src="https://via.placeholder.com/150x80 " alt="Sponsor 1"
+                                   class="img-fluid sponsor-logo">
+                              <img src="https://via.placeholder.com/150x80 " alt="Sponsor 2"
+                                   class="img-fluid sponsor-logo">
+                              <img src="https://via.placeholder.com/150x80 " alt="Sponsor 3"
+                                   class="img-fluid sponsor-logo">
+                              <img src="https://via.placeholder.com/150x80 " alt="Sponsor 4"
+                                   class="img-fluid sponsor-logo">
+                              <img src="https://via.placeholder.com/150x80 " alt="Sponsor 5"
+                                   class="img-fluid sponsor-logo">
+                         </div>
+                    </div>
+               </section>
+
+               <!-- Upcoming Events -->
+               <section class="container my-5">
+                    <h2 class="text-center fw-bold text-success mb-4">Upcoming Events</h2>
+                    <div class="row g-4">
+                         <div class="col-md-4">
+                              <div class="card border-0 shadow-sm h-100 transition-hover">
+                                   <img src="https://source.unsplash.com/random/400x200?event ,festival"
+                                        class="card-img-top" alt="Event">
+                                   <div class="card-body">
+                                        <h5 class="card-title">Annual Cultural Day</h5>
+                                        <p class="card-text">Join us for dance, music, food, and traditional
+                                             performances
+                                             celebrating Telugu heritage.</p>
+                                        <p><i class="fas fa-calendar-alt me-2 text-success"></i>April 20, 2025</p>
+                                        <a href="/events" class="btn btn-outline-success btn-sm">Learn More</a>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-md-4">
+                              <div class="card border-0 shadow-sm h-100 transition-hover">
+                                   <img src="https://source.unsplash.com/random/400x200?charity ,community"
+                                        class="card-img-top" alt="Event">
+                                   <div class="card-body">
+                                        <h5 class="card-title">Charity Drive</h5>
+                                        <p class="card-text">Support underprivileged families in Nigeria through
+                                             donations
+                                             and outreach programs.</p>
+                                        <p><i class="fas fa-calendar-alt me-2 text-success"></i>May 10, 2025</p>
+                                        <a href="/events" class="btn btn-outline-success btn-sm">Learn More</a>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-md-4">
+                              <div class="card border-0 shadow-sm h-100 transition-hover">
+                                   <img src="https://source.unsplash.com/random/400x200?yoga ,wellness"
+                                        class="card-img-top" alt="Event">
+                                   <div class="card-body">
+                                        <h5 class="card-title">Health & Wellness Workshop</h5>
+                                        <p class="card-text">Free health checkups, yoga sessions, and nutrition tips
+                                             from
+                                             experts.</p>
+                                        <p><i class="fas fa-calendar-alt me-2 text-success"></i>June 15, 2025</p>
+                                        <a href="/events" class="btn btn-outline-success btn-sm">Learn More</a>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </section>
+
+               <!-- Testimonials -->
+               <section class="bg-light py-5">
+                    <div class="container">
+                         <h2 class="text-center fw-bold text-success mb-4">What Our Members Say</h2>
+                         <div class="row g-4">
+                              <div class="col-md-4">
+                                   <div class="card p-4 shadow-sm h-100 border-0">
+                                        <p>"TAN has been a great way to stay connected with our roots and meet fellow
+                                             Telugus."</p>
+                                        <div class="d-flex align-items-center mt-3">
+                                             <img src="https://via.placeholder.com/50 " class="rounded-circle me-3"
+                                                  alt="Member">
+                                             <div>
+                                                  <strong>Ravi Teja</strong><br>
+                                                  <small>Lagos</small>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                              <div class="col-md-4">
+                                   <div class="card p-4 shadow-sm h-100 border-0">
+                                        <p>"The events are so much fun and help build a strong sense of belonging."</p>
+                                        <div class="d-flex align-items-center mt-3">
+                                             <img src="https://via.placeholder.com/50 " class="rounded-circle me-3"
+                                                  alt="Member">
+                                             <div>
+                                                  <strong>Priya Reddy</strong><br>
+                                                  <small>Abuja</small>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                              <div class="col-md-4">
+                                   <div class="card p-4 shadow-sm h-100 border-0">
+                                        <p>"Being part of TAN has helped me connect with my heritage and make lifelong
+                                             friends."</p>
+                                        <div class="d-flex align-items-center mt-3">
+                                             <img src="https://via.placeholder.com/50 " class="rounded-circle me-3"
+                                                  alt="Member">
+                                             <div>
+                                                  <strong>Sai Kumar</strong><br>
+                                                  <small>Port Harcourt</small>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </section>
+
+               <!-- Newsletter Call-to-Action -->
+               <section class="container my-5 text-center">
+                    <div class="bg-success text-white p-4 rounded shadow-sm">
+                         <h3 class="mb-3">Stay Connected With Us!</h3>
+                         <p class="mb-4">Subscribe to our newsletter for updates on events, news, and member benefits.
+                         </p>
+                         <form class="d-flex justify-content-center gap-2 mb-3">
+                              <input type="email" class="form-control form-control-lg w-50"
+                                   placeholder="Your Email Address">
+                              <button class="btn btn-light btn-lg">Subscribe</button>
+                         </form>
+                    </div>
+               </section>
+     </div>
+     <div class="get-in-touch-div row m-0">
+  <!-- Left Column -->
+  <div class="col-md-5 side-content d-flex flex-column justify-content-center">
+    <div class="get-in-touch">Get in Touch</div>
+    <p class="git-content">
+      We’d love to chat about what you are trying to achieve and your current circumstances.
+    </p>
+    <div class="get_in_touch_circle"></div>
+  </div>
+
+  <!-- Right Column (Contact Form) -->
+  <div class="col-md-7 px-4">
+    <form id="contactForm" action="https://script.google.com/macros/s/your-script-id/exec " method="POST">
+      <div class="contact-form">
+        <div class="contact-form-fields">
+
+          <div class="contact-form-field">
+            <label for="full-name">NAME</label>
+            <input type="text" id="full-name" name="full_name" class="form-control" placeholder="Enter your name" required />
+          </div>
+
+          <div class="contact-form-field">
+            <label for="phone_no">PHONE</label>
+            <input type="tel" id="phone_no" name="phone_no" class="form-control" placeholder="Enter your number" required />
+          </div>
+
+          <div class="contact-form-field">
+            <label for="msg">MESSAGE</label>
+            <textarea id="msg" name="msg" class="form-control" rows="4" placeholder="Write your message here..." required></textarea>
+          </div>
+
+          <div class="submit-btn d-flex justify-content-center">
+            <button type="submit" class="contact-form-submit">Submit</button>
+          </div>
+
+          <!-- Success Message -->
+          <div id="successPopup" class="text-success text-center mt-3" style="display: none;">
+            ✅ Your message has been sent successfully!
+          </div>
+
+          <!-- Error Message -->
+          <div id="errorPopup" class="text-danger text-center mt-3" style="display: none;">
+            ❌ Something went wrong. Please try again later.
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+     {% endblock content %}
+
+
+
+     {% block footer %}
+
+     <footer class="footer-section bg-success text-white pt-5 pb-4">
+          <div class="container">
+               <div class="row g-4">
+
+                    <!-- About Column -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                         <div class="h-100 pe-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                              <h5 class="text-uppercase mb-4">About TAN</h5>
+                              <p class="mb-4">Telugu Association of Nigeria connects Telugu people through cultural
+                                   events, community service, and social networking.</p>
+                              <div class="contact-info">
+                                   <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-map-marker-alt me-3"></i>
+                                        <span>123 Cultural Street, Lagos, Nigeria</span>
+                                   </div>
+                                   <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-phone-alt me-3"></i>
+                                        <span>+234 800 123 4567</span>
+                                   </div>
+                                   <div class="d-flex align-items-center">
+                                        <i class="fas fa-envelope me-3"></i>
+                                        <span>contact@tan.org.ng</span>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+                    <!-- Quick Links Column -->
+                    <div class="col-lg-2 col-md-6 mb-4">
+                         <div class="h-100 wow fadeInUp" data-wow-delay="0.2s">
+                              <h5 class="text-uppercase mb-4">Quick Links</h5>
+                              <ul class="list-unstyled">
+                                   <li class="mb-2"><a href="/" class="text-white hover-light">Home</a></li>
+                                   <li class="mb-2"><a href="/about" class="text-white hover-light">About Us</a></li>
+                                   <li class="mb-2"><a href="/events" class="text-white hover-light">Events</a></li>
+                                   <li class="mb-2"><a href="/gallery" class="text-white hover-light">Gallery</a></li>
+                                   <li><a href="/contact" class="text-white hover-light">Contact</a></li>
+                              </ul>
+                         </div>
+                    </div>
+
+                    <!-- Resources Column -->
+                    <div class="col-lg-2 col-md-6 mb-4">
+                         <div class="h-100 wow fadeInUp" data-wow-delay="0.3s">
+                              <h5 class="text-uppercase mb-4">Resources</h5>
+                              <ul class="list-unstyled">
+                                   <li class="mb-2"><a href="/membership" class="text-white hover-light">Membership</a>
+                                   </li>
+                                   <li class="mb-2"><a href="/documents" class="text-white hover-light">Documents</a>
+                                   </li>
+                                   <li class="mb-2"><a href="/calendar" class="text-white hover-light">Calendar</a></li>
+                                   <li class="mb-2"><a href="/sponsors" class="text-white hover-light">Sponsors</a></li>
+                                   <li><a href="/faq" class="text-white hover-light">FAQ</a></li>
+                              </ul>
+                         </div>
+                    </div>
+
+                    <!-- Contact & Social Column -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                         <div class="h-100 wow fadeInUp" data-wow-delay="0.4s">
+                              <h5 class="text-uppercase mb-4">Connect With Us</h5>
+
+                              <!-- Google Map -->
+                              <div class="map-container mb-4 rounded overflow-hidden border border-white border-2">
+                                   <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.585565156049!2d3.379295415231633!3d6.453326325820974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1620000000000!5m2!1sen!2sng"
+                                        width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy">
+                                   </iframe>
+                              </div>
+
+                              <!-- Social Icons -->
+                              <div class="social-icons d-flex gap-3 mb-4">
+                                   <a href="#"
+                                        class="social-icon rounded-circle d-flex align-items-center justify-content-center bg-white text-success">
+                                        <i class="fab fa-facebook-f"></i>
+                                   </a>
+                                   <a href="#"
+                                        class="social-icon rounded-circle d-flex align-items-center justify-content-center bg-white text-success">
+                                        <i class="fab fa-twitter"></i>
+                                   </a>
+                                   <a href="#"
+                                        class="social-icon rounded-circle d-flex align-items-center justify-content-center bg-white text-success">
+                                        <i class="fab fa-instagram"></i>
+                                   </a>
+                                   <a href="#"
+                                        class="social-icon rounded-circle d-flex align-items-center justify-content-center bg-white text-success">
+                                        <i class="fab fa-youtube"></i>
+                                   </a>
+                              </div>
+
+                              <!-- Newsletter -->
+                              <div class="newsletter">
+                                   <h6 class="mb-3">Subscribe to Newsletter</h6>
+                                   <form class="d-flex gap-2">
+                                        <input type="email" class="form-control form-control-sm bg-white"
+                                             placeholder="Your Email">
+                                        <button class="btn btn-sm btn-light text-success" type="submit">
+                                             <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                   </form>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+
+
+          </div>
+
+          <!-- Copyright -->
+
+          <p class="mb-0 small text-center text-white mt-3 mb-3 ">
+               © 2025 Telugu Association of Nigeria. All Rights Reserved.
+          </p>
+
+     </footer>
+     {% endblock footer %}
+     <!-- Bootstrap JS -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+{% extends "index.html" %}
+
+{% block content %}
+<!-- FullCalendar CSS -->
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+<!-- Animate.css (optional if using WOW.js) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+<div class="container py-5">
+     <h2 class="text-center mb-4 wow animate__fadeInDown">Events Calendar</h2>
+     <div id="calendar" class="wow animate__fadeInUp">
+
+     </div>
+</div>
+
+<!-- FullCalendar JS -->
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+<!-- WOW.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+     new WOW().init();
+
+     document.addEventListener('DOMContentLoaded', function () {
+          const calendarEl = document.getElementById('calendar');
+
+          const calendar = new FullCalendar.Calendar(calendarEl, {
+               initialView: 'dayGridMonth',
+               headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,listWeek'
+               },
+               events: {{ events| tojson | safe }},    
+          height: 'auto',
+          eventMouseEnter: function (info) {
+               info.el.style.transform = 'translateY(-2px)';
+               info.el.style.boxShadow = '0 5px 10px rgba(0,0,0,0.1)';
+          },
+          eventMouseLeave: function (info) {
+               info.el.style.transform = 'translateY(0)';
+               info.el.style.boxShadow = 'none';
+          },
+          viewDidMount: function () {
+               const fcView = document.querySelector('.fc-view');
+               if (fcView) {
+                    fcView.classList.add('animate__animated', 'animate__fadeIn');
+                    setTimeout(() => {
+                         fcView.classList.remove('animate__animated', 'animate__fadeIn');
+                    }, 800);
+               }
+          }
+    });
+
+     calendar.render();
+  });
+</script>
+{% endblock %}

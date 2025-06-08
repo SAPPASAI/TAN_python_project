@@ -1,0 +1,174 @@
+
+  /* Calendar Section Styling */
+  .telugu-calendar {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+
+
+  .calendar-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, #198754, #20c997);
+    border-radius: 3px;
+  }
+
+  /* Month Tabs */
+  .month-tabs {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .month-tabs::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.05);
+    z-index: 1;
+  }
+
+  .nav-pills {
+    position: relative;
+    z-index: 2;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+
+  .nav-pills::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+  .month-btn {
+    font-weight: 500;
+    color: #495057;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1.25rem;
+    margin: 0 0.25rem;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .month-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: #198754;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+  }
+
+  .month-btn:hover {
+    color: #198754;
+    transform: translateY(-2px);
+  }
+
+  .month-btn:hover::after {
+    width: 70%;
+  }
+
+  .month-btn.active {
+    color: #198754;
+    font-weight: 600;
+  }
+
+  .month-btn.active::after {
+    width: 100%;
+    background: linear-gradient(to right, #198754, #20c997);
+  }
+
+  /* PDF Container */
+  .pdf-container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .pdf-container:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+  }
+
+  #calendarFrame {
+    width: 100%;
+    height: 700px;
+    border: none;
+    transition: all 0.5s ease;
+  }
+
+  /* Loading Animation */
+  .loading-spinner {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate__fadeInUp {
+    animation-name: fadeInUp;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 991.98px) {
+    .calendar-title {
+      font-size: 2rem;
+    }
+    
+    .month-btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .calendar-title {
+      font-size: 1.8rem;
+    }
+    
+    #calendarFrame {
+      height: 500px;
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    #calendarFrame {
+      height: 400px;
+    }
+  }

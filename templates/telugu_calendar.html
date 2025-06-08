@@ -1,0 +1,125 @@
+{% extends "index.html" %}
+{% block content %}
+<link rel="stylesheet" href="static/telugu_calendar.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+<section class="telugu-calendar py-5">
+  <div class="container">
+    <h2 class="calendar-title text-center wow animate__fadeInDown">Telugu Calendar 2025</h2>
+    
+    <!-- Month Tabs -->
+    <div class="month-tabs wow animate__fadeIn">
+      <ul class="nav nav-pills" id="monthTabs">
+        {% for month in [
+          'January', 'February', 'March', 'April', 'May', 'June',
+          'July', 'August', 'September', 'October', 'November', 'December'
+        ] %}
+        <li class="nav-item">
+          <button class="nav-link month-btn" data-month="{{ month }}">{{ month }}</button>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- PDF Display -->
+    <div class="pdf-container wow animate__fadeInUp">
+      <div class="loading-spinner text-success">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <iframe id="calendarFrame" src="" width="100%" height="700px"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+  // Initialize WOW.js for animations
+  new WOW().init();
+  
+  // Calendar functionality
+  const months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+  const currentMonth = new Date().getMonth();
+  const iframe = document.getElementById('calendarFrame');
+  const buttons = document.querySelectorAll('.month-btn');
+  const spinner = document.querySelector('.loading-spinner');
+
+  function loadMonthPDF(month) {
+    // Show loading spinner
+    spinner.style.display = 'block';
+    iframe.style.opacity = '0.5';
+    
+    // Simulate loading delay (remove in production)
+    setTimeout(() => {
+      iframe.src = `/static/pdfs/${month}.pdf`;
+      
+      // Highlight active button
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+        btn.style.transform = 'translateY(0)';
+      });
+      
+      const activeBtn = document.querySelector(`.month-btn[data-month="${month}"]`);
+      activeBtn.classList.add('active');
+      activeBtn.style.transform = 'translateY(-2px)';
+      
+      // Hide spinner when PDF is loaded
+      iframe.onload = () => {
+        spinner.style.display = 'none';
+        iframe.style.opacity = '1';
+      };
+    }, 300);
+  }
+
+  // Initial load
+  document.addEventListener('DOMContentLoaded', () => {
+    loadMonthPDF(months[currentMonth]);
+  });
+
+  // Click event for month buttons
+  buttons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const selectedMonth = this.getAttribute('data-month');
+      loadMonthPDF(selectedMonth);
+      
+      // Add click animation
+      this.style.transform = 'translateY(-2px) scale(1.05)';
+      setTimeout(() => {
+        this.style.transform = 'translateY(-2px) scale(1)';
+      }, 200);
+    });
+    
+    // Hover effect
+    btn.addEventListener('mouseenter', function() {
+      if(!this.classList.contains('active')) {
+        this.style.transform = 'translateY(-2px)';
+      }
+    });
+    
+    btn.addEventListener('mouseleave', function() {
+      if(!this.classList.contains('active')) {
+        this.style.transform = 'translateY(0)';
+      }
+    });
+  });
+
+  // PDF container hover effect
+  const pdfContainer = document.querySelector('.pdf-container');
+  pdfContainer.addEventListener('mouseenter', function() {
+    this.style.transform = 'translateY(-5px)';
+    this.style.boxShadow = '0 15px 40px rgba(0,0,0,0.15)';
+  });
+  
+  pdfContainer.addEventListener('mouseleave', function() {
+    this.style.transform = 'translateY(0)';
+    this.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+  });
+</script>
+{% endblock %}

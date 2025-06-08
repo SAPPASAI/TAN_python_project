@@ -1,0 +1,97 @@
+{% extends "index.html" %}
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="static/contact_id.css">
+<section class="contact-section py-5">
+  <div class="container">
+    <div class="section-header animate__animated animate__fadeInDown">
+      <h2 class="section-title">Contact Information</h2>
+      <p class="text-muted">Get in touch with our team members</p>
+    </div>
+
+    <div class="row g-4">
+      {% for contact in contacts %}
+      <div class="col-md-6 col-lg-4 contact-card" style="--order: {{ loop.index }}">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <img src="{{ contact.photo }}" class="profile-img" alt="{{ contact.name }}" loading="lazy">
+            <h5 class="card-title">{{ contact.name }}</h5>
+            <p class="designation">{{ contact.designation }}</p>
+            
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="fas fa-phone-alt contact-icon phone-icon"></i>
+                <span>{{ contact.phone }}</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope contact-icon email-icon"></i>
+                <span>{{ contact.email }}</span>
+              </div>
+            </div>
+            
+            <div class="social-links">
+              {% if contact.social.facebook %}
+              <a href="{{ contact.social.facebook }}" class="social-link facebook animate__animated animate__fadeIn" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              {% endif %}
+              {% if contact.social.twitter %}
+              <a href="{{ contact.social.twitter }}" class="social-link twitter animate__animated animate__fadeIn" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+              {% endif %}
+              {% if contact.social.linkedin %}
+              <a href="{{ contact.social.linkedin }}" class="social-link linkedin animate__animated animate__fadeIn" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              {% endif %}
+              {% if contact.social.instagram %}
+              <a href="{{ contact.social.instagram }}" class="social-link instagram animate__animated animate__fadeIn" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize animations
+    const cards = document.querySelectorAll('.contact-card');
+    cards.forEach((card, index) => {
+      card.style.setProperty('--order', index);
+    });
+    
+    // Add hover effects
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.querySelector('.card').style.transform = 'translateY(-10px) rotateX(5deg)';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.querySelector('.card').style.transform = 'translateY(0) rotateX(0)';
+      });
+      
+      // Add click animation
+      card.addEventListener('click', function() {
+        this.classList.add('animate__animated', 'animate__pulse');
+        setTimeout(() => {
+          this.classList.remove('animate__animated', 'animate__pulse');
+        }, 500);
+      });
+    });
+    
+    // Animate social icons sequentially
+    const socialLinks = document.querySelectorAll('.social-link');
+    socialLinks.forEach((link, index) => {
+      link.style.animationDelay = `${index * 0.1}s`;
+    });
+  });
+</script>
+{% endblock %}

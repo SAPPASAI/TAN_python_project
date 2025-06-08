@@ -1,0 +1,165 @@
+
+  /* Emergency Contacts Section */
+  .emergency-section {
+    background: linear-gradient(135deg, #fff9f9 0%, #ffffff 100%);
+    padding: 4rem 0;
+    min-height: 100vh;
+  }
+  
+  /* Section Header */
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeInDown 0.6s ease-out;
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .section-title {
+    font-weight: 700;
+    color: #008604;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .section-subtitle {
+    color: #636e72;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Emergency Cards */
+  .emergency-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-left: 4px solid #007506;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+    animation-delay: calc(var(--order) * 0.1s);
+    height: 100%;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .emergency-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px #02de0d5e;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .card-icon {
+    color: #007506;
+    font-size: 1.75rem;
+    margin-right: 1rem;
+    min-width: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .emergency-card:hover .card-icon {
+    transform: scale(1.1);
+    animation: pulse 1s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+  
+  .card-content {
+    flex: 1;
+  }
+  
+  .card-title {
+    font-weight: 600;
+    color: #2d3436;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  .emergency-card:hover .card-title {
+    color: #007506da;
+  }
+  
+  .card-description {
+    color: #636e72;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .call-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.25rem;
+    background: #007506;
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(214, 48, 49, 0.3);
+  }
+  
+  .call-btn:hover {
+    background: #ad0404;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(214, 48, 49, 0.4);
+    color: white;
+  }
+  
+  .call-btn i {
+    margin-right: 6px;
+    font-size: 0.9rem;
+  }
+  
+  /* Service-Specific Icons */
+  .police-icon { color: #3498db; }
+  .ambulance-icon { color: #e74c3c; }
+  .fire-icon { color: #f39c12; }
+  .disaster-icon { color: #9b59b6; }
+  .women-icon { color: #e84393; }
+  .child-icon { color: #00b894; }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .emergency-card {
+      animation-delay: calc(var(--order) * 0.05s);
+    }
+    
+    .section-title {
+      font-size: 1.8rem;
+    }
+    
+    .card-body {
+      padding: 1.25rem;
+    }
+  }

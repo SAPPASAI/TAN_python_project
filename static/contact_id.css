@@ -1,0 +1,225 @@
+
+
+
+  /* Contact Section Styling */
+  .contact-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Section Header */
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .section-title {
+    font-weight: 700;
+    color: #2c3e50;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #3498db, #9b59b6);
+    border-radius: 2px;
+    transition: all 0.4s ease;
+  }
+  
+  .section-title:hover::after {
+    width: 120px;
+    background: linear-gradient(90deg, #9b59b6, #3498db);
+  }
+  
+  /* Contact Cards */
+  .contact-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s forwards;
+    animation-delay: calc(var(--order) * 0.1s);
+    transition: all 0.4s ease;
+    perspective: 1000px;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  }
+  
+  .card-body {
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Profile Image */
+  .profile-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+    transition: all 0.5s ease;
+    transform: translateZ(30px);
+  }
+  
+  .card:hover .profile-img {
+    transform: scale(1.05) translateZ(40px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+  
+  /* Contact Info */
+  .card-title {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover .card-title {
+    color: #3498db;
+  }
+  
+  .designation {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .designation::after {
+    content: '';
+    position: absolute;
+    bottom: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #3498db, #9b59b6);
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover .designation::after {
+    width: 60px;
+  }
+  
+  .contact-info {
+    width: 100%;
+    margin-top: auto;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-item:hover {
+    transform: translateX(5px);
+  }
+  
+  .contact-icon {
+    margin-right: 10px;
+    font-size: 1.1rem;
+    min-width: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-item:hover .contact-icon {
+    transform: scale(1.2);
+  }
+  
+  .phone-icon {
+    color: #2ecc71;
+  }
+  
+  .email-icon {
+    color: #3498db;
+  }
+  
+  /* Social Links */
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 1.5rem;
+  }
+  
+  .social-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+    transform: translateZ(20px);
+  }
+  
+  .social-link:hover {
+    transform: translateY(-3px) scale(1.1) translateZ(30px);
+  }
+  
+  .facebook { background-color: #3b5998; }
+  .twitter { background-color: #1da1f2; }
+  .linkedin { background-color: #0077b5; }
+  .instagram { background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+    .contact-card {
+      animation-delay: calc(var(--order) * 0.05s);
+    }
+    
+    .profile-img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 1.8rem;
+    }
+    
+    .card-body {
+      padding: 1.5rem;
+    }
+  }

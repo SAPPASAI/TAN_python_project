@@ -1,0 +1,115 @@
+{% extends "index.html" %}
+{% block content %}
+
+
+<link rel="stylesheet" href="static/temples.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<section class="temple-section py-5">
+  <div class="container">
+     <div class="section-header animate__animated animate__fadeInDown">
+      <h2 class="section-title">Famous Temples</h2>
+      <p class="text-muted">Discover our collection of insightful temples</p>
+    </div>
+    <!-- Search Box -->
+    <div class="row justify-content-center mb-5 animate__animated animate__fadeIn">
+      <div class="col-md-8 col-lg-6">
+        <div class="search-box">
+          <input type="text" id="templeSearch" class="form-control" placeholder="Search temples by name or location...">
+          <i class="fas fa-search"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Temple List -->
+    <div class="row" id="templeList">
+      {% for temple in temples %}
+      <div class="col-lg-4 col-md-6 mb-4 temple-card" 
+           data-name="{{ temple.name|lower }}" 
+           data-location="{{ temple.location|lower }}"
+           style="--order: {{ loop.index }}">
+        <div class="card shadow-sm h-100">
+          <img src="{{ temple.image_url }}" class="card-img-top" alt="{{ temple.name }}" loading="lazy">
+          <div class="card-body">
+            <h5 class="card-title">{{ temple.name }}</h5>
+            <p class="card-text"><i class="fas fa-map-marker-alt location-marker"></i>{{ temple.location }}</p>
+            <p class="card-text small text-muted">{{ temple.description|truncate(120) }}</p>
+            <a href="#" class="btn btn-outline-danger btn-sm mt-2">View Details</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+    <!-- No Results Message -->
+    <div class="no-results animate__animated" id="noResults">
+      <i class="fas fa-temple"></i>
+      <h4>No Temples Found</h4>
+      <p>Try a different search term</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize animations
+    const cards = document.querySelectorAll('.temple-card');
+    cards.forEach((card, index) => {
+      card.style.setProperty('--order', index);
+    });
+    
+    // Enhanced search functionality
+    const searchInput = document.getElementById('templeSearch');
+    const templeCards = document.querySelectorAll('.temple-card');
+    const noResults = document.getElementById('noResults');
+    
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim().toLowerCase();
+      let visibleCount = 0;
+      
+      templeCards.forEach(card => {
+        const name = card.dataset.name;
+        const location = card.dataset.location;
+        const isVisible = name.includes(query) || location.includes(query);
+        
+        if (isVisible) {
+          card.style.display = 'block';
+          card.classList.add('animate__animated', 'animate__fadeIn');
+          visibleCount++;
+        } else {
+          card.classList.add('animate__animated', 'animate__fadeOut');
+          setTimeout(() => {
+            card.style.display = 'none';
+            card.classList.remove('animate__fadeOut');
+          }, 300);
+        }
+      });
+      
+      // Show/hide no results message
+      if (visibleCount === 0 && query.length > 0) {
+        noResults.style.display = 'block';
+        noResults.classList.add('animate__fadeIn');
+      } else {
+        noResults.classList.remove('animate__fadeIn');
+        noResults.classList.add('animate__fadeOut');
+        setTimeout(() => {
+          noResults.style.display = 'none';
+          noResults.classList.remove('animate__fadeOut');
+        }, 300);
+      }
+    });
+    
+    // Add hover effects
+    templeCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.querySelector('.card').style.transform = 'translateY(-10px)';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.querySelector('.card').style.transform = 'translateY(0)';
+      });
+    });
+  });
+</script>
+{% endblock %}

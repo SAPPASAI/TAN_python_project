@@ -1,0 +1,50 @@
+{% extends "admin/base.html" %}
+{% block title %}Add New Member{% endblock %}
+{% block content %}
+<h2>Add New Member</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label for="full_name" class="form-label">Full Name</label>
+    <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Enter full name" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" name="email" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="phone" class="form-label">Phone</label>
+    <input type="tel" class="form-control" id="phone" name="phone">
+  </div>
+
+  <div class="mb-3">
+    <label for="address" class="form-label">Address</label>
+    <input type="text" class="form-control" id="address" name="address">
+  </div>
+
+  <div class="mb-3">
+    <label for="gender" class="form-label">Gender</label>
+    <select class="form-select" id="gender" name="gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="membership_type" class="form-label">Membership Type</label>
+    <input type="text" class="form-control" id="membership_type" name="membership_type"
+           placeholder="e.g., General Member, Life Member" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="message" class="form-label">Message (Optional)</label>
+    <textarea class="form-control" id="message" name="message" rows="3"
+              placeholder="Member's message or note"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-success">Add Member</button>
+  <a href="{{ url_for('admin_members_details') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

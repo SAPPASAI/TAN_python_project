@@ -1,0 +1,74 @@
+{% extends "index.html" %}
+{% block hed %}
+<section>
+     <div class="breadcrumbs-custom context-dark bg-success text-center">
+          <div class="container">
+               <h2 class="breadcrumbs-custom-title text-white p-4 fs-1">Founders</h2>
+          </div>
+          <div class="box-position"></div>
+     </div>
+</section>
+
+{% endblock hed %}
+
+
+{% block content %}
+<link rel="stylesheet" href="static/founders.css">
+<section class="founder-section py-5 ">
+     <div class="container">
+
+          <!-- Section Header -->
+          <div class="text-center">
+               <span class="section-subtitle text-uppercase text-success">Visionary Leadership</span>
+               <h2 class="section-title fw-bold mt-2">Our Founder</h2>
+               <div class="divider mx-auto my-3 bg-success" style="height: 3px; width: 80px;"></div>
+               <p class="section-description text-muted mx-auto" style="max-width: 600px;">
+                    Meet the inspiring visionary who laid the foundation for Telugu Association of Nigeria
+               </p>
+          </div>
+
+          <!-- Founder Card -->
+          <div class="row justify-content-center">
+               <div class="col-md-8 col-lg-6 col-xl-5">
+                    <div class="founder-card wow m-3 mb-5  fadeInUp" data-wow-delay="0.3s">
+                         <div class="card border-0 shadow-lg overflow-hidden">
+                              <!-- Image with overlay -->
+                              <div class="founder-image-container">
+                                   <img src="static/images/gallery/image2.jpg" class="founder-image h-20 w-100 "
+                                        alt="Founder Image">
+                                   <div class="image-overlay"></div>
+                              </div>
+
+                              <!-- Card Body -->
+                              <div class="card-body text-center  px-4 py-4">
+                                   <h3 class="founder-name mb-1">Dr. SAPPA SAI</h3>
+                                   <p class="founder-title text-success mb-4">Founder & Visionary</p>
+
+                                   <p class="founder-description mb-4">
+                                        Dr. Ravi Kumar established TAN in 2010 with the mission to unite the Telugu
+                                        diaspora in Nigeria.
+                                        His visionary leadership has created a thriving community that celebrates Telugu
+                                        culture while
+                                        contributing to Nigerian society.
+                                   </p>
+
+                                   <!-- Social Links -->
+                                   <div class="founder-social-links d-flex justify-content-center gap-3 mt-4">
+                                        <a href="#" class="social-icon rounded-circle">
+                                             <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a href="#" class="social-icon rounded-circle">
+                                             <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a href="#" class="social-icon rounded-circle">
+                                             <i class="fas fa-envelope"></i>
+                                        </a>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+     </style>
+     {% endblock content %}

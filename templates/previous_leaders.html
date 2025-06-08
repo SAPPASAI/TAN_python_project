@@ -1,0 +1,115 @@
+{% extends "index.html" %}
+{% block hed %}
+<section>
+  <div class="breadcrumbs-custom context-dark bg-success text-center">
+    <div class="container">
+      <h2 class="breadcrumbs-custom-title text-white p-4 fs-1">Previous-leadership</h2>
+    </div>
+    <div class="box-position"></div>
+  </div>
+</section>
+
+{% endblock hed %}
+
+{% block content %}
+
+<link rel="stylesheet" href="static/previous_leader.css">
+
+<section class="previous-leadership-section py-5 position-relative">
+  <div class="container position-relative z-index-1">
+    <!-- Section Header -->
+    <div class="text-center " data-wow-delay="0.1s">
+      <span class="section-subtitle text-uppercase text-success">Our Heritage</span>
+      <h2 class="section-title fw-bold mt-2">Previous Leadership</h2>
+      <div class="divider mx-auto my-3"
+        style="height: 3px; width: 80px; background: linear-gradient(to right, #198754, #20c997);"></div>
+      <p class="section-description text-muted mx-auto" style="max-width: 600px;">
+        Honoring the visionaries who shaped TAN's journey and legacy
+      </p>
+    </div>
+
+    <!-- Leadership Grid -->
+    <div class="row g-4 justify-content-center">
+      <!-- Leader 1 -->
+      <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+        <div class="leader-card h-100">
+          <div class="card border-0 h-100 shadow-sm overflow-hidden">
+            <div class="leader-image-container">
+              <img src="https://cdn.pixabay.com/photo/2020/09/18/22/05/man-5583034_1280.jpg" class="leader-image"
+                alt="Mr. Rajesh Babu">
+              <div class="tenure-badge">2018–2020</div>
+            </div>
+            <div class="card-body text-center px-4 py-4">
+              <h5 class="leader-name mb-1">Mr. Rajesh Babu</h5>
+              <p class="leader-title text-success mb-3">President</p>
+              <p class="leader-bio">
+                Led the association with a focus on community integration and education support.
+                Established key scholarship programs for Telugu students.
+              </p>
+              <div class="leader-achievements mt-3">
+                <span class="achievement-badge">Community Building</span>
+                <span class="achievement-badge">Education</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leader 2 -->
+      <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="leader-card h-100">
+          <div class="card border-0 h-100 shadow-sm overflow-hidden">
+            <div class="leader-image-container">
+              <img src="https://png.pngtree.com/thumb_back/fh260/background/20241007/pngtree-linkedin-cover-image-featuring-a-professional-woman-image_16339305.jpg" class="leader-image"
+                alt="Mrs. Padma Latha">
+              <div class="tenure-badge">2018–2020</div>
+            </div>
+            <div class="card-body text-center px-4 py-4">
+              <h5 class="leader-name mb-1">Mrs. Padma Latha</h5>
+              <p class="leader-title text-success mb-3">General Secretary</p>
+              <p class="leader-bio">
+                Managed communications, events, and documentation during her term.
+                Implemented the first digital records system for TAN.
+              </p>
+              <div class="leader-achievements mt-3">
+                <span class="achievement-badge">Organization</span>
+                <span class="achievement-badge">Digital Transformation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leader 3 -->
+      <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+        <div class="leader-card h-100">
+          <div class="card border-0 h-100 shadow-sm overflow-hidden">
+            <div class="leader-image-container">
+              <img src="https://cdn.pixabay.com/photo/2020/09/18/22/05/man-5583035_1280.jpg" class="leader-image "
+                alt="Mr. Naveen Reddy">
+              <div class="tenure-badge">2020–2022</div>
+            </div>
+            <div class="card-body text-center px-4 py-4">
+              <h5 class="leader-name mb-1">Mr. Naveen Reddy</h5>
+              <p class="leader-title text-success mb-3">President</p>
+              <p class="leader-bio">
+                Strengthened the association's digital presence and community outreach.
+                Launched TAN's first mobile app and online membership portal.
+              </p>
+              <div class="leader-achievements mt-3">
+                <span class="achievement-badge">Technology</span>
+                <span class="achievement-badge">Outreach</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Background Elements -->
+  <div class="position-absolute top-0 start-0 w-100 h-100 bg-light z-index-0" style="opacity: 0.3;"></div>
+</section>
+
+
+
+{% endblock content %}

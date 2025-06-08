@@ -1,0 +1,154 @@
+
+  /* Temple Listing Styles */
+  .temple-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+    padding: 3rem 0;
+  }
+  
+  .section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #e74c3c, #f39c12);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  
+  .section-title:hover::after {
+    transform: scaleX(1);
+  }
+  
+  /* Search Box */
+  .search-box {
+    position: relative;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .search-box input {
+    padding: 12px 20px;
+    border-radius: 50px;
+    border: 2px solid #ddd;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .search-box input:focus {
+    border-color: hsl(141, 100%, 29%);
+    box-shadow: 0 4px 20px rgba(231, 76, 60, 0.2);
+  }
+  
+  .search-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7f8c8d;
+  }
+  
+  /* Temple Cards */
+  .temple-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+    animation-delay: calc(var(--order) * 0.1s);
+    transition: all 0.3s ease;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: white;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  }
+  
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .card:hover .card-img-top {
+    transform: scale(1.05);
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .card-title {
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .card-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: hsl(141, 100%, 29%);
+    transition: width 0.3s ease;
+  }
+  
+  .card:hover .card-title::after {
+    width: 100%;
+  }
+  
+  .location-marker {
+    color: hsl(141, 100%, 29%);
+    margin-right: 5px;
+  }
+  
+  .no-results {
+    text-align: center;
+    padding: 2rem;
+    display: none;
+  }
+  
+  .no-results i {
+    font-size: 3rem;
+    color: #bdc3c7;
+    margin-bottom: 1rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .temple-card {
+      animation-delay: calc(var(--order) * 0.05s);
+    }
+    
+    .card-img-top {
+      height: 180px;
+    }
+  }

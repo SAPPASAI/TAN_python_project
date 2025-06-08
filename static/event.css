@@ -1,0 +1,138 @@
+/* Calendar Section Styling */
+  .calendar-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Calendar Header */
+  .calendar-header {
+    font-size: 2.2rem;
+    background: linear-gradient(to right, #198754, #20c997);
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.5px;
+    margin-bottom: 2rem;
+  }
+
+  .calendar-header::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, #198754, #20c997);
+  }
+
+  /* FullCalendar Customization */
+  #calendar {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    transition: all 0.5s ease;
+  }
+
+  #calendar:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .fc .fc-toolbar-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #343a40;
+  }
+
+  .fc .fc-button {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    color: #495057;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .fc .fc-button:hover {
+    background-color: #198754;
+    color: white;
+    border-color: #198754;
+    transform: translateY(-2px);
+  }
+
+  .fc .fc-button-primary:not(:disabled).fc-button-active {
+    background-color: #198754;
+    border-color: #198754;
+  }
+
+  .fc .fc-daygrid-day-number {
+    color: #495057;
+    font-weight: 500;
+  }
+
+  .fc .fc-daygrid-day.fc-day-today {
+    background-color: rgba(25, 135, 84, 0.1);
+  }
+
+  .fc .fc-event {
+    background-color: #198754;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 5px;
+    transition: all 0.3s ease;
+  }
+
+  .fc .fc-event:hover {
+    background-color: #157347;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .fc .fc-daygrid-event-dot {
+    border-color: white;
+  }
+
+  .fc .fc-list-event:hover td {
+    background-color: rgba(25, 135, 84, 0.1);
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate__fadeInUp {
+    animation-name: fadeInUp;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 767.98px) {
+    .calendar-header {
+      font-size: 1.8rem;
+    }
+    
+    .fc .fc-toolbar {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .fc .fc-toolbar-title {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+    
+    .fc .fc-button {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.8rem;
+    }
+  }
